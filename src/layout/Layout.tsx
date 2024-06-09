@@ -4,25 +4,21 @@ import {Outlet} from "react-router-dom";
 import BottomMenu from "@/layout/BottomMenu.tsx";
 
 function Layout() {
-    const [prevScrollY, setPrevScrollY] = useState(0);
-    const [showBottomMenu, setShowBottomMenu] = useState(false);
+  const [showBottomMenu, setShowBottomMenu] = useState(false);
 
     useEffect(() => {
         const handleScroll = () => {
-            const currentScrollY = window.scrollY;
-            if (currentScrollY > 50 && currentScrollY > prevScrollY) {
+            if (window.scrollY > 150) {
                 setShowBottomMenu(true);
             } else {
                 setShowBottomMenu(false);
             }
-            setPrevScrollY(currentScrollY);
         };
-
         window.addEventListener("scroll", handleScroll);
         return () => {
             window.removeEventListener("scroll", handleScroll);
         };
-    }, [prevScrollY]);
+    }, []);
 
     return <>
         <main className="container">
