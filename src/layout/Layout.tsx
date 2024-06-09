@@ -4,30 +4,39 @@ import {Outlet} from "react-router-dom";
 import BottomMenu from "@/layout/BottomMenu.tsx";
 
 function Layout() {
-const [showBottomMenu, setShowBottomMenu] = useState(false);
+const [showBottomMenu, setShowBottomMenu] = useState(true);
+useEffect(() => {
+    let timeoutId: NodeJS.Timeout;
 
-    useEffect(() => {
-        const handleScroll = () => {
-            if (window.scrollY > 350) setShowBottomMenu(false); // Inverted the condition to hide the bottom menu when scrolling down
-            else setShowBottomMenu(true)
-        }
-        window.addEventListener("scroll", handleScroll);
-        return () => { window.removeEventListener("scroll", handleScroll)}
-    }, [])
+    const handleScroll = () => {
+        clearTimeout(timeoutId);
+        setShowBottomMenu(false);
 
-    return <>
+        timeoutId = setTimeout(() => {
+            setShowBottomMenu(true);
+        }, 300);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+        window.removeEventListener("scroll", handleScroll);
+        clearTimeout(timeoutId);
+    };
+}, []);
+
+    return (
+    <>
         <main className="container">
             <Header/>
             <div className="mx-auto pb-10 md:pb-0" style={{marginTop: "5rem"}}>
                 <Outlet/>
             </div>
-            {showBottomMenu && (
-                <div
-                    className={`fixed bottom-[-2px] left-0 md:hidden w-full transition-all duration-1000 ${showBottomMenu ? 'opacity-100' : 'opacity-0'}`}>
-                    <BottomMenu/>
-                </div>)}
+            <div className={`fixed bottom-[-2px] left-0 md:hidden w-full transition-opacity duration-500 ${showBottomMenu ? 'opacity-100' : 'opacity-0'}`}>
+                {showBottomMenu && <BottomMenu/>}
+            </div>
         </main>
     </>
+);
 }
 
 export default Layout;
