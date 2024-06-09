@@ -4,21 +4,16 @@ import {Outlet} from "react-router-dom";
 import BottomMenu from "@/layout/BottomMenu.tsx";
 
 function Layout() {
-  const [showBottomMenu, setShowBottomMenu] = useState(false);
+const [showBottomMenu, setShowBottomMenu] = useState(false);
 
     useEffect(() => {
         const handleScroll = () => {
-            if (window.scrollY > 150) {
-                setShowBottomMenu(true);
-            } else {
-                setShowBottomMenu(false);
-            }
-        };
+            if (window.scrollY > 350) setShowBottomMenu(false); // Inverted the condition to hide the bottom menu when scrolling down
+            else setShowBottomMenu(true)
+        }
         window.addEventListener("scroll", handleScroll);
-        return () => {
-            window.removeEventListener("scroll", handleScroll);
-        };
-    }, []);
+        return () => { window.removeEventListener("scroll", handleScroll)}
+    }, [])
 
     return <>
         <main className="container">
