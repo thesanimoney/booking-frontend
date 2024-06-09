@@ -14,7 +14,7 @@ useEffect(() => {
 
         timeoutId = setTimeout(() => {
             setShowBottomMenu(true);
-        }, 300);
+        }, 100);
     };
 
     window.addEventListener("scroll", handleScroll);
