@@ -28,7 +28,7 @@ useEffect(() => {
     <>
         <main className="container">
             <Header/>
-            <div className="mx-auto pb-10 md:pb-0" style={{marginTop: "5rem"}}>
+            <div className="mx-auto pb-10 md:pb-0 margin-top-responsive">
                 <Outlet/>
             </div>
             <div className={`fixed bottom-[-2px] left-0 md:hidden w-full transition-opacity duration-500 ${showBottomMenu ? 'opacity-100' : 'opacity-0'}`}>
