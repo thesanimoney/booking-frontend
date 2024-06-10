@@ -1,0 +1,3 @@
+.container {
+    @apply flex-col flex gap-2 text-center
+}

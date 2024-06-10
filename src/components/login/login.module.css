@@ -1,0 +1,4 @@
+.link {
+    @apply ml-auto inline-block text-sm underline
+}
+

@@ -1,16 +1,20 @@
-import { Button } from "@/components/ui/button"
+import { Button } from "@/components/ui/button.tsx"
 import {
   Card,
   CardContent,
   CardDescription,
   CardHeader,
   CardTitle,
-} from "@/components/ui/card"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
+} from "@/components/ui/card.tsx"
+import { Input } from "@/components/ui/input.tsx"
+import { Label } from "@/components/ui/label.tsx"
 import {Link} from "react-router-dom";
+import {LogIn} from "lucide-react";
+import {ModeToggle} from "@/components/ui/modeToggle.tsx";
+import styles from './login.module.css'
+import '../../index.css'
 
-export default function LoginForm() {
+export function LoginForm() {
   return (
     <Card className="mx-auto max-w-sm">
       <CardHeader>
@@ -33,7 +37,7 @@ export default function LoginForm() {
           <div className="grid gap-2">
             <div className="flex items-center">
               <Label htmlFor="password">Password</Label>
-              <Link to={'/'} className="ml-auto inline-block text-sm underline">
+              <Link to={'/'} className={styles.link}>
                 Forgot your password?
               </Link>
             </div>
@@ -52,4 +56,25 @@ export default function LoginForm() {
       </CardContent>
     </Card>
   )
+}
+
+export function LoginHeaderButtons() {
+    return <>
+        <div className="hidden sm:flex gap-2">
+            <Link to={'/auth/login'}>
+                <Button>Sign In <LogIn className={'ml-1'} size={15}/></Button>
+            </Link>
+           <Link to={'/auth/register'}>
+                <Button className={'mr-2'} variant={'outline'}>Sign Up</Button>
+           </Link>
+        </div>
+        <div className="gridTwoColumns sm:grid-cols-1 gap-1 itemsCenter">
+            <ModeToggle/>
+            <Link to={'/auth/login'}>
+                <Button className="px-4 sm:hidden">
+                    <LogIn size={15}/>
+                </Button>
+            </Link>
+        </div>
+    </>
 }

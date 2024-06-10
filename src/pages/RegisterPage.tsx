@@ -1,8 +1,9 @@
-import RegisterForm from "@/components/RegisterForm.tsx";
+import RegisterForm from "@/components/register/RegisterForm.tsx";
+import '../index.css'
 
 function RegisterPage() {
     return <>
-    <div className="justify-center items-center flex h-screen">
+    <div className="itemsCenter flex h-screen">
         <RegisterForm/>
     </div>
     </>

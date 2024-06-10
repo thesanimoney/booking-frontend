@@ -1,7 +1,7 @@
 import {useEffect, useState} from "react";
-import Header from "@/components/Header.tsx";
 import {Outlet} from "react-router-dom";
-import BottomMenu from "@/components/BottomMenu.tsx";
+import BottomMenu from "@/components/bottomMenu";
+import Header from "@/components/header";
 
 function Layout() {
 const [showBottomMenu, setShowBottomMenu] = useState(true);

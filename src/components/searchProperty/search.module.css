@@ -1,0 +1,19 @@
+.locationInput {
+    @apply max-w-[100%] md:max-w-[55%]
+}
+
+.priceInput {
+    @apply max-w-[49%] md:max-w-[21%]
+}
+
+.buttonSearch {
+    @apply w-[100%] sm:max-w-[100%]
+}
+
+.form {
+    @apply flex flex-row justify-between flex-wrap gap-y-2
+}
+
+.imageContainer {
+   @apply mx-auto mb-10 py-5 md:hidden -translate-x-10
+}

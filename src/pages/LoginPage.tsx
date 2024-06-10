@@ -1,8 +1,9 @@
-import LoginForm from "@/components/LoginForm.tsx";
+import {LoginForm} from "@/components/login";
+import '../index.css'
 
 function LoginPage() {
     return <>
-    <div className="justify-center items-center flex h-screen">
+    <div className="itemsCenter flex h-screen">
         <LoginForm/>
     </div>
     </>

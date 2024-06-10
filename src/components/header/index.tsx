@@ -1,9 +1,10 @@
 import TypographyH2 from "@/components/typography/TypographyH2.tsx";
-import List from "@/components/List.tsx";
 import {blackLogo, navLinks, whiteLogo} from "@/data/data.ts";
 import {useTheme} from "@/components/theme-provider.tsx";
-import LoginMenuGroup from "@/components/LoginMenuGroup.tsx";
 import {Link} from "react-router-dom";
+import './header.css'
+import List from "@/components/list";
+import {LoginHeaderButtons} from "@/components/login";
 
 interface Props {
     isPrimary?: boolean;
@@ -12,7 +13,7 @@ interface Props {
 function Header({isPrimary}: Props) {
     const {theme} = useTheme()
     return <>
-        <div className="mx-auto flex justify-between items-center">
+        <div className="flex-center">
             <Link to="/">
                 <div className="flex items-center gap-2">
                     <img src={theme == 'dark' ? `${whiteLogo}` : `${blackLogo}`} alt="logo"
@@ -26,7 +27,7 @@ function Header({isPrimary}: Props) {
             <List navLinks={navLinks}/>
         </div>}
         {isPrimary && <div className="flex-wrap flex">
-            <LoginMenuGroup/>
+            <LoginHeaderButtons/>
         </div>}
     </div>
 </>
