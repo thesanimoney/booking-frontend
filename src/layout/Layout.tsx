@@ -1,7 +1,7 @@
 import {useEffect, useState} from "react";
 import Header from "@/components/Header.tsx";
 import {Outlet} from "react-router-dom";
-import BottomMenu from "@/layout/BottomMenu.tsx";
+import BottomMenu from "@/components/BottomMenu.tsx";
 
 function Layout() {
 const [showBottomMenu, setShowBottomMenu] = useState(true);
@@ -27,7 +27,7 @@ useEffect(() => {
     return (
     <>
         <main className="container">
-            <Header/>
+            <Header isPrimary={true}/>
             <div className="mx-auto pb-10 md:pb-0 margin-top-responsive">
                 <Outlet/>
             </div>

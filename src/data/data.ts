@@ -1,4 +1,9 @@
-export const navLinks = ['Home', 'About', 'Search', 'Contact Us'];
+export const navLinks = {
+    Home: '',
+    About: 'about',
+    Search: 'search',
+};
+
 export const stats = [
     {
         numbers: 16,

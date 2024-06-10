@@ -1,22 +1,25 @@
 import TypographyP from "@/components/typography/TypographyP.tsx";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 interface Props {
-    navLinks: string[];
+    navLinks: Record<string, string>;
 }
 
 function List({ navLinks }: Props) {
+    const location = useLocation();
+
     return (
         <>
-            {navLinks.map((link, index) => (
-                <Link
-                    className="transform transition-transform duration-700 ease-in-out hover:bg-secondary px-4 rounded"
-                    key={index}
-                    to={link.toLowerCase()}
-                >
-                    <TypographyP text={link} />
-                </Link>
-            ))}
+            {Object.entries(navLinks).map(([link, path], index) => {
+                const isActive = location.pathname === `/${path}`;
+                return (
+                    <Link className="transform transition-all duration-300 ease-in-out py-1 px-4 rounded hover:bg-secondary"
+                        key={index}
+                        to={`/${path}`}>
+                        <TypographyP isSecondary={!isActive} text={link} />
+                    </Link>
+                );
+            })}
         </>
     );
 }

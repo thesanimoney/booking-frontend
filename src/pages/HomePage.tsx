@@ -1,5 +1,5 @@
-import SearchBlock from "@/layout/SearchBlock.tsx";
-import ImageBlock from "@/layout/imageBlock.tsx";
+import SearchBlock from "@/components/SearchBlock.tsx";
+import ImageBlock from "@/components/ImageBlock.tsx";
 
 function HomePage() {
     return <>

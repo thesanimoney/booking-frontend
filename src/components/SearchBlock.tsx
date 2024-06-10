@@ -2,7 +2,7 @@ import TypographyH1 from "@/components/typography/TypographyH1.tsx";
 import TypographyP from "@/components/typography/TypographyP.tsx";
 import SearchForm from "@/components/SearchForm.tsx";
 import Achivement from "@/components/Achivement.tsx";
-import ImageBlock from "@/layout/imageBlock.tsx";
+import ImageBlock from "@/components/ImageBlock.tsx";
 
 function SearchBlock() {
     const text = 'Discover your dream home with our premier real estate services. Whether you\'re seeking a cozy apartment in the heart of the city or a spacious villa nestled in serene countryside, our team is dedicated to finding the perfect property to suit your lifestyle.'

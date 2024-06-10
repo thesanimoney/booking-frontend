@@ -1,5 +1,5 @@
 import {Tabs, TabsContent, TabsList, TabsTrigger} from "@/components/ui/tabs.tsx";
-import HomeForm from "@/components/HomeForm.tsx";
+import MiniSearchForm from "@/components/MiniSearchForm.tsx";
 
 function SearchForm() {
     return <>
@@ -9,10 +9,10 @@ function SearchForm() {
                 <TabsTrigger value="buy">Buy</TabsTrigger>
             </TabsList>
             <TabsContent value="rent">
-               <HomeForm/>
+               <MiniSearchForm/>
             </TabsContent>
             <TabsContent value="buy">
-               <HomeForm/>
+               <MiniSearchForm/>
             </TabsContent>
         </Tabs>
     </>

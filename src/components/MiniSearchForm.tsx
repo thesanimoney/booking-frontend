@@ -1,7 +1,7 @@
 import {Input} from "@/components/ui/input.tsx";
 import {Button} from "@/components/ui/button.tsx";
 
-function HomeForm() {
+function MiniSearchForm() {
     return <>
         <form action="" className={'flex flex-row justify-between flex-wrap gap-y-2'}>
             <Input placeholder="Location" className={'max-w-[100%] md:max-w-[55%]'}/>
@@ -12,4 +12,4 @@ function HomeForm() {
     </>
 }
 
-export default HomeForm;
+export default MiniSearchForm;
