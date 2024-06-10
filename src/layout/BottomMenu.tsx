@@ -1,6 +1,6 @@
 import { CircleUserRound, Home, Search} from "lucide-react";
 import { useTheme } from "@/components/theme-provider.tsx";
-import {MenuItem} from "@/components/MenuItem.tsx";
+import {MenuItem} from "@/components/ui/MenuItem.tsx";
 
 function BottomMenu() {
     const { theme } = useTheme();
