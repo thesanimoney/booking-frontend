@@ -1,32 +1,15 @@
-import {Link} from "react-router-dom";
-import {CircleUserRound, Home, Search} from "lucide-react";
-import {useTheme} from "@/components/theme-provider.tsx";
-import TypographyP from "@/components/typography/TypographyP.tsx";
+import { CircleUserRound, Home, Search} from "lucide-react";
+import { useTheme } from "@/components/theme-provider.tsx";
+import {MenuItem} from "@/components/MenuItem.tsx";
 
 function BottomMenu() {
-    const {theme} = useTheme();
-
+    const { theme } = useTheme();
     return (
         <div className={`mx-auto py-3 rounded-t-2xl opacity-90 ${theme === "dark" ? 'bg-zinc-900' : 'bg-zinc-100'}`}>
             <ul className="flex justify-around">
-                <li className="flex items-center flex-col">
-                    <Home/>
-                    <Link to={'/home'}>
-                        <TypographyP text={'Home'}/>
-                    </Link>
-                </li>
-                <li className="flex items-center flex-col">
-                    <Search/>
-                      <Link to={'/search'}>
-                        <TypographyP text={'Search'}/>
-                    </Link>
-                </li>
-                <li className="flex items-center flex-col">
-                    <CircleUserRound/>
-                   <Link to={'/profile'}>
-                        <TypographyP text={'Profile'}/>
-                    </Link>
-                </li>
+                <MenuItem to="/" icon={Home} text="Home" />
+                <MenuItem to="/search" icon={Search} text="Search" />
+                <MenuItem to="/profile" icon={CircleUserRound} text="Profile" />
             </ul>
         </div>
     );

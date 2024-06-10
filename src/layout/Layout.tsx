@@ -31,7 +31,7 @@ useEffect(() => {
             <div className="mx-auto pb-10 md:pb-0 margin-top-responsive">
                 <Outlet/>
             </div>
-            <div className={`fixed bottom-[-2px] left-0 md:hidden w-full transition-opacity duration-500 ${showBottomMenu ? 'opacity-100' : 'opacity-0'}`}>
+            <div className={`fixed bottom-[-2px] left-0 lg:hidden w-full transition-opacity duration-500 ${showBottomMenu ? 'opacity-100' : 'opacity-0'}`}>
                 {showBottomMenu && <BottomMenu/>}
             </div>
         </main>

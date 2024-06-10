@@ -8,7 +8,10 @@ function MenuGroup() {
             <Button>Sign In <LogIn className={'ml-1'} size={15}/></Button>
             <Button className={'mr-2'} variant={'outline'}>Sign Up</Button>
         </div>
-        <ModeToggle/>
+        <div className="grid grid-cols-2 sm:grid-cols-1 justify-items-center items-center gap-1">
+            <ModeToggle/>
+            <Button className="px-4 sm:hidden"><LogIn size={15}/></Button>
+        </div>
     </>
 }
 

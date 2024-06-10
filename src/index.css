@@ -70,3 +70,7 @@
         margin-top: 10rem;
     }
 }
+
+.linkActive {
+  color: var(--secondary);
+}

@@ -1,4 +1,4 @@
-export const navLinks = ['Home', 'About', 'Contact', 'Agents'];
+export const navLinks = ['Home', 'About', 'Search', 'Contact Us'];
 export const stats = [
     {
         numbers: 16,
@@ -13,6 +13,8 @@ export const stats = [
         name: "Awards won"
     }
 ];
+
+// export const bottomMenu = ['Home',  'Search', 'Profile'];
 
 export const blackLogo = 'https://thesanimoney-booking.s3.eu-north-1.amazonaws.com/logoBlack.png'
 export const whiteLogo = 'https://thesanimoney-booking.s3.eu-north-1.amazonaws.com/logoWhite.png'
