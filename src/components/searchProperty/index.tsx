@@ -5,12 +5,12 @@ import TypographyH1 from "@/components/typography/TypographyH1.tsx";
 import TypographyP from "@/components/typography/TypographyP.tsx";
 import ImageBlock from "@/components/images";
 import Achievement from "@/components/achivement";
-import {text} from "@/data/data.ts";
+import {bathrooms, bedrooms, properties, text} from "@/data/data.ts";
 import styles from './search.module.css'
 import '../../index.css'
+import {Dropdown} from "@/components/dropdown";
 
 export function SearchFieldsBasic() {
-
     return <>
         <form action="" className={styles.form}>
             <Input placeholder="Location" className={styles.locationInput}/>
@@ -21,18 +21,38 @@ export function SearchFieldsBasic() {
     </>
 }
 
+export function SearchFields() {
+    return <>
+        <div className="grid grid-cols-6 gap-2">
+            <Input className={'col-span-6'} placeholder="Location"/>
+            <div className="col-span-3 md:col-span-1">
+                <Dropdown title={'Properties'} data={properties}/>
+            </div>
+            <div className="col-span-3 md:col-span-1">
+                <Dropdown title={'Bathrooms'} data={bathrooms}/>
+            </div>
+            <div className="col-span-2 md:col-span-1">
+                <Dropdown title={'Type'} data={bedrooms}/>
+            </div>
+            <Input className={'col-span-2 md:col-span-1'} placeholder="Min $"/>
+            <Input className={'col-span-2 md:col-span-1'} placeholder="Max $"/>
+            <Button className={'col-span-6 md:col-span-1'}>Search</Button>
+        </div>
+    </>
+}
+
 export function SearchPropertyForm() {
     return <>
         <Tabs defaultValue="rent">
             <TabsList>
-                <TabsTrigger value="rent">Rent</TabsTrigger>
+            <TabsTrigger value="rent">Rent</TabsTrigger>
                 <TabsTrigger value="buy">Buy</TabsTrigger>
             </TabsList>
             <TabsContent value="rent">
-               <SearchFieldsBasic/>
+                <SearchFieldsBasic/>
             </TabsContent>
             <TabsContent value="buy">
-               <SearchFieldsBasic/>
+                <SearchFieldsBasic/>
             </TabsContent>
         </Tabs>
     </>

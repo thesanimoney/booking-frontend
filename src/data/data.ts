@@ -21,6 +21,56 @@ export const stats = [
     }
 ];
 
+export const properties = [
+    {
+        value: "apartments",
+        label: "Apartments",
+    },
+    {
+        value: "house",
+        label: "House",
+    },
+       {
+        value: "villa",
+        label: "Villa",
+    },
+    {
+        value: "room",
+        label: "Room",
+    },
+
+]
+
+export const bathrooms = [
+    {
+        value: "one",
+        label: "1 bathroom",
+    },
+    {
+        value: "two",
+        label: "2 bathrooms",
+    },
+       {
+        value: "three",
+        label: "3 bathrooms",
+    },
+]
+
+export const bedrooms = [
+    {
+        value: "one",
+        label: "1 bedroom",
+    },
+    {
+        value: "two",
+        label: "2 bedrooms",
+    },
+       {
+        value: "three",
+        label: "3 bedrooms",
+    },
+]
+
 // export const bottomMenu = ['Home',  'Search', 'Profile'];
 
 export const blackLogo = 'https://thesanimoney-booking.s3.eu-north-1.amazonaws.com/logoBlack.png'

@@ -1,6 +1,12 @@
+import {PropertyCard} from "@/components/propertyCard";
+import {SearchFields} from "@/components/searchProperty";
+
 function SearchPage() {
     return <>
-        <p>hello page search</p>
+      <div className="mb-10">
+           <SearchFields/>
+      </div>
+        <PropertyCard/>
     </>
 }
 
