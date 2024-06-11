@@ -31,7 +31,8 @@ export function ImageTextContainer() {
                 <TypographyP text={vision}/>
             </div>
             <div className="col-auto">
-                <img src="src/assets/dalle.webp" alt="dalle" className="rounded-b-xl md:rounded-r-xl h-[200px] w-[100%] md:w-[100%] md:h-[100%]" />
+                <img src="src/assets/dalle.webp" alt="dalle"
+                     className="rounded-b-xl md:rounded-r-xl md:rounded-l-none h-[200px] w-[100%] md:w-[100%] md:h-[100%]"/>
             </div>
         </div>
     </>
