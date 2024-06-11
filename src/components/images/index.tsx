@@ -1,6 +1,8 @@
 import {skyscraper, skyscraperDark} from "@/data/data.ts";
 import './images.css'
 import '../../index.css'
+import {TypographyH3} from "@/components/typography/TypographyH3.tsx";
+import TypographyP from "@/components/typography/TypographyP.tsx";
 
 const Images = () => {
     return (
@@ -17,6 +19,22 @@ const Images = () => {
             />
         </section>
     );
+}
+
+export function ImageTextContainer() {
+    const vision = 'We constantly innovate and improve our platform to meet the evolving needs of travelers and hosts, leveraging cutting-edge technology to enhance the booking process.'
+    return <>
+        <div className="grid grid-cols-1 md:grid-cols-2 bg-secondary rounded-xl items-center">
+            <div className="col-auto p-5">
+                <div className="mb-5">
+                    <TypographyH3 text={'Our vision at Sani Estate'}/></div>
+                <TypographyP text={vision}/>
+            </div>
+            <div className="col-auto">
+                <img src="src/assets/dalle.webp" alt="dalle" className="rounded-b-xl md:rounded-r-xl h-[200px] w-[100%] md:w-[100%] md:h-[100%]" />
+            </div>
+        </div>
+    </>
 }
 
 export default Images;

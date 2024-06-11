@@ -14,7 +14,7 @@ function List({ navLinks }: Props) {
             {Object.entries(navLinks).map(([link, path], index) => {
                 const isActive = location.pathname === `/${path}`;
                 return (
-                    <Link className="link "
+                    <Link className="link hover:bg-secondary transition-all ease-in-out 400ms py-1 px-3 rounded-md"
                         key={index}
                         to={`/${path}`}>
                         <TypographyP isSecondary={!isActive} text={link} />
