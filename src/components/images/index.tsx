@@ -7,12 +7,12 @@ const Images = () => {
     return (
         <section className="gridTwoColumns gap-4 p-4">
             <img
-                src={'/assets/skyscrapper1.webp'}
+                src={'/static/assets/skyscrapper1.webp'}
                 alt="Image 1"
                 className="overlayed-images -translate-y-10 translate-x-20"
             />
             <img
-                src={'/assets/skyscrapperNight.webp'}
+                src={'/static/assets/skyscrapperNight.webp'}
                 alt="Image 2"
                 className="overlayed-images translate-y-10"
             />
@@ -30,7 +30,7 @@ export function ImageTextContainer() {
                 <TypographyP text={vision}/>
             </div>
             <div className="col-auto">
-                <img src="../../../public/static/assets/dalle.webp" alt="dalle"
+                <img src="/static/assets/dalle.webp" alt="dalle"
                      className="rounded-b-xl md:rounded-r-xl md:rounded-l-none h-[200px] w-[100%] md:w-[100%] md:h-[100%]"/>
             </div>
         </div>
