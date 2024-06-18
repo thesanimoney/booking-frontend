@@ -23,7 +23,7 @@ export function PropertyCard() {
         <Card
             className="w-full sm:h-[400px] grid sm:grid-cols-2 rounded-xl hover:scale-105 transition duration-500 ease-in-out">
             <img className="object-fill sm:h-[400px] w-full rounded-t-xl md:rounded-l-xl md:rounded-tr-none"
-                 src="src/assets/dalle.webp"
+                 src="/static/assets/dalle.webp"
                  alt="dalle"/>
             <div className="mx-auto flex flex-col gap-y-10">
                 <CardHeader>
@@ -61,7 +61,7 @@ export function MiniCard() {
 
     return <>
         <div className="mx-auto grid-cols-2 grid items-center">
-            <img className={'max-h-[120px] rounded-md col-span-1'} src="src/assets/dalle.webp" alt="image"/>
+            <img className={'max-h-[120px] rounded-md col-span-1'} src="../../../public/static/assets/dalle.webp" alt="image"/>
             <span className={'col-span-1'}>
                 <TypographyH4 text={'456 Park Avenue, London'}/>
               <div className={'flex justify-between'}>

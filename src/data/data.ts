@@ -6,7 +6,7 @@ export const navLinks = {
     Search: 'search',
 };
 
-export const sliderData = ['/src/assets/skyscrapper1.webp', '/src/assets/dalle.webp', '/src/assets/skyscrapper1.webp', '/src/assets/skyscrapperNight.webp']
+export const sliderData = ['/static/assets/skyscrapper1.webp', '/static/assets/dalle.webp', '/static/assets/skyscrapper1.webp', '/static/assets/skyscrapperNight.webp']
 
 export const stats = [
     {
