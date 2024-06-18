@@ -4,7 +4,7 @@ import Landlord, {MainFeatures} from "@/components/propertyDetails";
 import TypographyP from "@/components/typography/TypographyP.tsx";
 
 function PropertyPage() {
-const text = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam fuga placeat quidem. et, consectetur adipisicing elit. Aliquam fuga placeat quidem. At consequuntur delectus, deleniti eveniet excepturi, illo impedit inventore maxime nam quae quod similique, et, consectetur adipisicing elit. Aliquam fuga placeat quidem. tenetur veritatis vero voluptates.'
+const text = 'Lorem ipsum1 dolor sit amet, consectetur adipisicing elit. Aliquam fuga placeat quidem. et, consectetur adipisicing elit. Aliquam fuga placeat quidem. At consequuntur delectus, deleniti eveniet excepturi, illo impedit inventore maxime nam quae quod similique, et, consectetur adipisicing elit. Aliquam fuga placeat quidem. tenetur veritatis vero voluptates.'
     return <>
         <section className={'grid grid-cols-1 lg:grid-cols-5 mb-10'}>
             <div className={'col-span-3'}>
