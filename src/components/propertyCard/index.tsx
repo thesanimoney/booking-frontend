@@ -13,14 +13,15 @@ import {TypographyH4} from "@/components/typography/TypographyH4.tsx";
 import Location from "@/components/location";
 import Price from "@/components/price";
 import {Toggle} from "@/components/ui/toggle.tsx";
-
+import {Link} from "react-router-dom";
 
 export function PropertyCard() {
     const [saved, setSaved] = useState<boolean>()
     const {theme} = useTheme()
 
     return (
-        <Card
+       <Link to={'/property/1'}>
+            <Card
             className="w-full sm:h-[400px] grid sm:grid-cols-2 rounded-xl hover:scale-105 transition duration-500 ease-in-out">
             <img className="object-fill sm:h-[400px] w-full rounded-t-xl md:rounded-l-xl md:rounded-tr-none"
                  src="/static/assets/dalle.webp"
@@ -53,6 +54,7 @@ export function PropertyCard() {
                 </CardFooter>
             </div>
         </Card>
+       </Link>
     )
 }
 

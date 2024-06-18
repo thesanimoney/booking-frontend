@@ -46,12 +46,8 @@ export function SearchPropertyForm() {
         <Tabs defaultValue="rent">
             <TabsList>
             <TabsTrigger value="rent">Rent</TabsTrigger>
-                <TabsTrigger value="buy">Buy</TabsTrigger>
             </TabsList>
             <TabsContent value="rent">
-                <SearchFieldsBasic/>
-            </TabsContent>
-            <TabsContent value="buy">
                 <SearchFieldsBasic/>
             </TabsContent>
         </Tabs>

@@ -9,10 +9,13 @@ interface ContactProps {
 function Contact({ message }: ContactProps) {
     const {theme} = useTheme()
     return <>
-        <span className={`flex hover:underline text-zinc-400 ${theme == 'dark' ? 'hover:text-zinc-100' : 'hover:text-zinc-900'} hover:cursor-pointer`}>
-            {message ? <MessageCircle className={'mr-2'}/>  : <Phone className={'mr-2'}/> }
-            <TypographyP text={'Contact'}></TypographyP>
+        <a href={'https://www.linkedin.com/in/oleksandr-stoliarchuk/'} target={'blank'}>
+            <span
+                className={`flex hover:underline text-zinc-400 ${theme == 'dark' ? 'hover:text-zinc-100' : 'hover:text-zinc-900'} hover:cursor-pointer`}>
+            {message ? <MessageCircle className={'mr-2'}/> : <Phone className={'mr-2'}/>}
+                <TypographyP text={'Contact'}></TypographyP>
         </span>
+        </a>
     </>
 }
 

@@ -1,4 +1,4 @@
-import {APIProvider, Map, AdvancedMarker, InfoWindow} from '@vis.gl/react-google-maps';
+import {APIProvider, Map, AdvancedMarker, InfoWindow, Pin} from '@vis.gl/react-google-maps';
 import {useState} from "react";
 import {MiniCard} from "@/components/propertyCard";
 import {Badge} from "@/components/ui/badge.tsx";
@@ -43,3 +43,26 @@ export const GreyMap = () => {
         </>
     );
 }
+
+export const MapMini = () => {
+    const position = {lat: 53.55, lng: 9.99}; // Corrected coordinates
+    return (
+        <>
+            <APIProvider apiKey={import.meta.env.VITE_API_MAP}>
+                <Map
+                    id={'map'}
+                    style={{width: '100%', height: '200px', borderRadius: '10px', overflow: 'hidden', zIndex: 1}}
+                    defaultZoom={15}
+                    gestureHandling={'greedy'}
+                    disableDefaultUI={true}
+                    mapId={'b190e9c9b19e00cb'}
+                    defaultCenter={position}>
+                    <AdvancedMarker className={'hover:scale-125 transition-all 300ms ease-in-out'} position={position}>
+                      <Pin glyphColor={'black'} borderColor={'white'} background={'white'}/>
+                    </AdvancedMarker>
+                </Map>
+            </APIProvider>
+        </>
+    );
+}
+
