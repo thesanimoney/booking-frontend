@@ -1,4 +1,3 @@
-import {skyscraper, skyscraperDark} from "@/data/data.ts";
 import './images.css'
 import '../../index.css'
 import {TypographyH3} from "@/components/typography/TypographyH3.tsx";
@@ -8,12 +7,12 @@ const Images = () => {
     return (
         <section className="gridTwoColumns gap-4 p-4">
             <img
-                src={skyscraper}
+                src={'src/assets/skyscrapper1.webp'}
                 alt="Image 1"
                 className="overlayed-images -translate-y-10 translate-x-20"
             />
             <img
-                src={skyscraperDark}
+                src={'src/assets/skyscrapperNight.webp'}
                 alt="Image 2"
                 className="overlayed-images translate-y-10"
             />

@@ -1,5 +1,5 @@
 import Images from "@/components/images";
-import {SearchPropertySection} from "@/components/searchProperty";
+import {SearchPropertySection} from "@/components/propertySearch";
 
 function HomePage() {
     return <>

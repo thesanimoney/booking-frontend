@@ -6,6 +6,8 @@ export const navLinks = {
     Search: 'search',
 };
 
+export const sliderData = ['/src/assets/skyscrapper1.webp', '/src/assets/dalle.webp', '/src/assets/skyscrapper1.webp', '/src/assets/skyscrapperNight.webp']
+
 export const stats = [
     {
         numbers: 16,
@@ -30,7 +32,7 @@ export const properties = [
         value: "house",
         label: "House",
     },
-       {
+    {
         value: "villa",
         label: "Villa",
     },
@@ -50,7 +52,7 @@ export const bathrooms = [
         value: "two",
         label: "2 bathrooms",
     },
-       {
+    {
         value: "three",
         label: "3 bathrooms",
     },
@@ -65,7 +67,7 @@ export const bedrooms = [
         value: "two",
         label: "2 bedrooms",
     },
-       {
+    {
         value: "three",
         label: "3 bedrooms",
     },

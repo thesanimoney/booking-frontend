@@ -5,12 +5,14 @@ import {
     CardHeader,
     CardTitle,
 } from "@/components/ui/card"
-import {Bath, Bed, Bookmark, MapPin} from "lucide-react";
-import TypographyP from "@/components/typography/TypographyP.tsx";
+import {Bath, Bed, Bookmark} from "lucide-react";
 import {Badge} from "@/components/ui/badge"
 import {Toggle} from "@/components/ui/toggle.tsx";
 import {useState} from "react";
 import {useTheme} from "@/components/theme-provider.tsx";
+import {TypographyH4} from "@/components/typography/TypographyH4.tsx";
+import Location from "@/components/location";
+import Price from "@/components/price";
 
 
 export function PropertyCard() {
@@ -18,7 +20,8 @@ export function PropertyCard() {
     const {theme} = useTheme()
 
     return (
-        <Card className="w-full sm:h-[400px] grid sm:grid-cols-2 rounded-xl hover:scale-105 transition duration-500 ease-in-out">
+        <Card
+            className="w-full sm:h-[400px] grid sm:grid-cols-2 rounded-xl hover:scale-105 transition duration-500 ease-in-out">
             <img className="object-fill sm:h-[400px] w-full rounded-t-xl md:rounded-l-xl md:rounded-tr-none"
                  src="src/assets/dalle.webp"
                  alt="dalle"/>
@@ -27,13 +30,8 @@ export function PropertyCard() {
                     <CardTitle>A Great Apartment Next to the Beach!</CardTitle>
                 </CardHeader>
                 <CardContent className={'gridColumn gap-y-5'}>
-       <span className={'flex gap-x-3 items-center'}>
-          <MapPin/>
-          <TypographyP text={'456 Park Avenue, London'}/>
-       </span>
-                    <span className={'text-2xl'}>
-                        <Badge className={'text-2xl mr-2'} variant="default">$300</Badge>
-                        per month</span>
+                    <Location location={'456 Park Avenue, London'}/>
+                   <Price price={356}/>
                 </CardContent>
                 <CardFooter className="grid grid-cols-3 sm:grid-cols-3 md:grid-cols-3">
                     <div className="col-span-2">
@@ -45,13 +43,37 @@ export function PropertyCard() {
                         </div>
                     </div>
                     <div className="col-span-1 flex flex-row gap-x-2 justify-self-end">
-                        {theme === 'dark' && ( <Toggle pressed={saved} onPressedChange={() => setSaved(prevState => !prevState)}><Bookmark
-                            fill={saved ? 'white' : 'black'} size={30}/></Toggle>)}
-                         {theme === 'light' && ( <Toggle pressed={saved} onPressedChange={() => setSaved(prevState => !prevState)}><Bookmark
-                            fill={saved ? 'black' : 'white'} size={30}/></Toggle>)}
+                        {theme === 'dark' && (
+                            <Toggle pressed={saved} onPressedChange={() => setSaved(prevState => !prevState)}><Bookmark
+                                fill={saved ? 'white' : 'black'} size={30}/></Toggle>)}
+                        {theme === 'light' && (
+                            <Toggle pressed={saved} onPressedChange={() => setSaved(prevState => !prevState)}><Bookmark
+                                fill={saved ? 'black' : 'white'} size={30}/></Toggle>)}
                     </div>
                 </CardFooter>
             </div>
         </Card>
     )
+}
+
+export function MiniCard() {
+    const [saved, setSaved] = useState<boolean>()
+
+    return <>
+        <div className="mx-auto grid-cols-2 grid items-center">
+            <img className={'max-h-[120px] rounded-md col-span-1'} src="src/assets/dalle.webp" alt="image"/>
+            <span className={'col-span-1'}>
+                <TypographyH4 text={'456 Park Avenue, London'}/>
+              <div className={'flex justify-between'}>
+                    <Badge className={'text-md mt-2 bg-zinc-700 text-zinc-50 hover:bg-zinc-600'}
+                           variant={'default'}>$356</Badge>
+                      <div>
+                            <Toggle className={'bg-white'} pressed={saved}
+                                    onPressedChange={() => setSaved(prevState => !prevState)}><Bookmark
+                                fill={saved ? '' : 'white'} size={25}/></Toggle>
+                    </div>
+              </div>
+            </span>
+        </div>
+    </>
 }
