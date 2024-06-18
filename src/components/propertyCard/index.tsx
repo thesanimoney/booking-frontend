@@ -7,12 +7,12 @@ import {
 } from "@/components/ui/card"
 import {Bath, Bed, Bookmark} from "lucide-react";
 import {Badge} from "@/components/ui/badge"
-import {Toggle} from "@/components/ui/toggle.tsx";
 import {useState} from "react";
 import {useTheme} from "@/components/theme-provider.tsx";
 import {TypographyH4} from "@/components/typography/TypographyH4.tsx";
 import Location from "@/components/location";
 import Price from "@/components/price";
+import {Toggle} from "@/components/ui/toggle.tsx";
 
 
 export function PropertyCard() {

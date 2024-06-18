@@ -1,9 +1,9 @@
-import {Avatar, AvatarFallback, AvatarImage} from "@/components/ui/avatar.tsx";
 import {Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle} from "@/components/ui/card.tsx";
 import {TypographyH4} from "@/components/typography/TypographyH4.tsx";
 import Location from "@/components/location";
 import Price from "@/components/price";
 import Contact from "@/components/contact";
+import {Avatar, AvatarFallback, AvatarImage} from "@/components/ui/avatar.tsx";
 
 export default function Landlord() {
     return <>
