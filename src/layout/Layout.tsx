@@ -2,6 +2,7 @@ import {useEffect, useState} from "react";
 import {Outlet} from "react-router-dom";
 import BottomMenu from "@/components/bottomMenu";
 import Header from "@/components/header";
+import {Toaster} from "@/components/ui/toaster.tsx";
 
 function Layout() {
 const [showBottomMenu, setShowBottomMenu] = useState(true);
@@ -34,6 +35,7 @@ useEffect(() => {
             <div className={`fixed bottom-[-2px] left-0 lg:hidden w-full transition-opacity z-10 duration-500 ${showBottomMenu ? 'opacity-100' : 'opacity-0'}`}>
                 {showBottomMenu && <BottomMenu/>}
             </div>
+            <Toaster />
         </main>
     </>
 );

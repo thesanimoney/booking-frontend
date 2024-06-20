@@ -59,7 +59,7 @@ export function SearchPropertySection() {
         <div className="gridColumn">
             <div>
                 <TypographyH1 text={'Find Real Estate & Rent Apartment of Your Dream'}/>
-                <p className={'mt-10 mb-10'}><TypographyP isSecondary={true} text={text}/></p>
+                <div className={'mt-10 mb-10'}><TypographyP isSecondary={true} text={text}/></div>
             </div>
             <div className={styles.imageContainer}>
                 <ImageBlock/>

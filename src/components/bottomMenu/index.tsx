@@ -1,4 +1,4 @@
-import { CircleUserRound, Home, Search} from "lucide-react";
+import {BookOpenText, Home, Search} from "lucide-react";
 import { useTheme } from "@/components/theme-provider.tsx";
 import {MenuItem} from "@/components/ui/MenuItem.tsx";
 import './bottomMenu.css'
@@ -10,7 +10,7 @@ function BottomMenu() {
             <ul className="flex justify-around">
                 <MenuItem to="/" icon={Home} text="Home" />
                 <MenuItem to="/search" icon={Search} text="Search" />
-                <MenuItem to="/profile" icon={CircleUserRound} text="Profile" />
+                <MenuItem to="/about" icon={BookOpenText} text="About"/>
             </ul>
         </div>
     );

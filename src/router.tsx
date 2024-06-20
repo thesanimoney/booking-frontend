@@ -8,6 +8,8 @@ import LoginPage from "@/pages/LoginPage.tsx";
 import RegisterPage from "@/pages/RegisterPage.tsx";
 import AboutPage from "@/pages/AboutPage.tsx";
 import PropertyPage from "@/pages/PropertyPage.tsx";
+import ProfilePage from "@/pages/ProfilePage.tsx";
+import ProtectedPage from "@/pages/protectedPage.tsx";
 
 const router = createBrowserRouter([
     {path: "/", element: <Layout />, errorElement: <ErrorPage />,
@@ -16,6 +18,9 @@ const router = createBrowserRouter([
             { path: "search", element: <SearchPage /> },
             { path: "about", element: <AboutPage/> },
             { path: "property/:id", element: <PropertyPage/> },
+            { path: "profile/", element: <ProtectedPage/>, children: [
+                    {path: '', element: <ProfilePage/>}
+                ] },
         ]},
     {path: '/auth', element: <AuthLayout/>, children: [
             {path: 'login', element: <LoginPage/>},
