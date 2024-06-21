@@ -21,6 +21,7 @@ import {useForm} from "react-hook-form";
 import {zodResolver} from "@hookform/resolvers/zod";
 import {UserFormDataUpdate, userSchemaUpdate} from "@/schema/updateUser.ts";
 import NotificationCenter from "@/components/notification";
+import {Post} from "@/hooks/posts/getPosts.ts";
 
 
 interface UserInfo {
@@ -29,11 +30,15 @@ interface UserInfo {
     email: string,
 }
 
+interface UserPosts {
+    savedPosts: Post[]
+    myPosts: Post[]
+}
+
 export const successText = 'Your profile updated successfully.'
 export const errorTitle = 'Oops some error happened'
 
 export function ProfileEdit({username, email}: UserInfo) {
-
     const {mutate, isPending, isError, error, isSuccess} = updateUser()
     const {register, handleSubmit, formState: {errors}} = useForm<UserFormDataUpdate>({
         resolver: zodResolver(userSchemaUpdate)
@@ -115,7 +120,7 @@ export function UserInfo({username, email}: UserInfo) {
     </>
 }
 
-export function UserPosts() {
+export function UserPosts({savedPosts, myPosts}: UserPosts) {
     return <>
         <div className="flex justify-between mb-5">
             <TypographyH2 text={'My list'}/>
@@ -127,12 +132,10 @@ export function UserPosts() {
                 <TabsTrigger value="properties">My properties</TabsTrigger>
             </TabsList>
             <TabsContent value="saved" className={'flex flex-col gap-y-4'}>
-                <PropertyCard/>
-                <PropertyCard/>
+                {savedPosts.map((item, index) => <PropertyCard key={index} id={item._id} data={item}/>)}
             </TabsContent>
             <TabsContent value="properties" className={'flex flex-col gap-y-4'}>
-                <PropertyCard/>
-                <PropertyCard/>
+                 {myPosts.map((item, index) => <PropertyCard key={index} id={item._id} data={item}/>)}
             </TabsContent>
         </Tabs></>
 

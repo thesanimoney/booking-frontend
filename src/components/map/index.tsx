@@ -1,14 +1,27 @@
-import {APIProvider, Map, AdvancedMarker, InfoWindow, Pin} from '@vis.gl/react-google-maps';
+import {APIProvider, Map, AdvancedMarker, Pin, InfoWindow} from '@vis.gl/react-google-maps';
 import {useState} from "react";
 import {MiniCard} from "@/components/propertyCard";
 import {Badge} from "@/components/ui/badge.tsx";
 import {useTheme} from "@/components/theme-provider.tsx";
+import {Post} from "@/hooks/posts/getPosts.ts";
 
-export const GreyMap = () => {
-    const position = {lat: 53.55, lng: 9.99}; // Corrected coordinates
-    const position2 = {lat: 53.55, lng: 9.88}; // Corrected coordinates
-    const [open, setOpen] = useState(false);
+interface MapProps {
+    data: Post[]
+}
+
+interface MiniMapProps {
+    data: Post
+}
+
+export const GreyMap = ({data}: MapProps) => {
+    const [openWindows, setOpenWindows] = useState<boolean[]>(new Array(data.length).fill(false));
     const {theme} = useTheme();
+
+       const toggleWindow = (index: number) => {
+        const updatedWindows = [...openWindows];
+        updatedWindows[index] = !updatedWindows[index];
+        setOpenWindows(updatedWindows);
+    };
 
     return (
         <>
@@ -20,32 +33,33 @@ export const GreyMap = () => {
                     gestureHandling={'greedy'}
                     disableDefaultUI={true}
                     mapId={'b190e9c9b19e00cb'}
-                    defaultCenter={position}>
-                    <AdvancedMarker className={'hover:scale-125 transition-all 300ms ease-in-out'} position={position} onClick={() => setOpen(true)}>
-                       <Badge className={`text-xl hover:bg-secondary ${theme == 'dark' ? 'hover:text-zinc-50' : 'hover:text-zinc-900'}`}
-                              variant={'default'}>$350</Badge>
-                    </AdvancedMarker>
+                    defaultCenter={{lat: parseInt(data[1]?.latitude), lng: parseInt(data[1]?.longitude)}}>
+                    {data.map((item, index) => <AdvancedMarker key={index} className={'hover:scale-125 transition-all 300ms ease-in-out'}
+                                                      position={{ lat: parseFloat(item.latitude), lng: parseFloat(item.longitude) }} onClick={() => toggleWindow(index)}>
+                        <Badge
+                            className={`text-xl hover:bg-secondary ${theme == 'dark' ? 'hover:text-zinc-50' : 'hover:text-zinc-900'}`}
+                            variant={'default'}>{item.price}</Badge>
+                    </AdvancedMarker>)}
 
-                     <AdvancedMarker className={'hover:scale-125 transition-all 300ms ease-in-out'} position={position2} onClick={() => setOpen(true)}>
-                       <Badge className={`text-xl hover:bg-secondary ${theme == 'dark' ? 'hover:text-zinc-50' : 'hover:text-zinc-900'}`}
-                              variant={'default'}>$450</Badge>
-                    </AdvancedMarker>
-
-                    {open &&
-                        <InfoWindow className={'p-0 max-w-[300px]'} position={position} onCloseClick={() => setOpen(false)}>
-                            <div className={'text-zinc-700 hover:underline hover:cursor-pointer'}>
-                              <MiniCard/>
-                            </div>
-                        </InfoWindow>
-                    }
+                   {openWindows.map((isOpen, index) => isOpen && (
+                    <InfoWindow
+                        key={index}
+                        className={'p-0 max-w-[300px]'}
+                        position={{ lat: parseFloat(data[index].latitude), lng: parseFloat(data[index].longitude) }}
+                        onCloseClick={() => toggleWindow(index)}>
+                        <div className={'text-zinc-700 hover:underline hover:cursor-pointer'}>
+                            <MiniCard id={data[index]._id} data={data[index]} />
+                        </div>
+                    </InfoWindow>
+                ))}
                 </Map>
             </APIProvider>
         </>
     );
 }
 
-export const MapMini = () => {
-    const position = {lat: 53.55, lng: 9.99}; // Corrected coordinates
+export const MapMini = ({data}: MiniMapProps) => {
+    const position = {lat: parseInt(data.latitude), lng: parseInt(data.longitude)}
     return (
         <>
             <APIProvider apiKey={import.meta.env.VITE_API_MAP}>
@@ -58,7 +72,7 @@ export const MapMini = () => {
                     mapId={'b190e9c9b19e00cb'}
                     defaultCenter={position}>
                     <AdvancedMarker className={'hover:scale-125 transition-all 300ms ease-in-out'} position={position}>
-                      <Pin glyphColor={'black'} borderColor={'white'} background={'white'}/>
+                        <Pin glyphColor={'black'} borderColor={'white'} background={'white'}/>
                     </AdvancedMarker>
                 </Map>
             </APIProvider>
