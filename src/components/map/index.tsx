@@ -59,7 +59,7 @@ export const GreyMap = ({data}: MapProps) => {
 }
 
 export const MapMini = ({data}: MiniMapProps) => {
-    const position = {lat: parseInt(data.latitude), lng: parseInt(data.longitude)}
+    const position = {lat: parseFloat(data.latitude), lng: parseFloat(data.longitude)}
     return (
         <>
             <APIProvider apiKey={import.meta.env.VITE_API_MAP}>

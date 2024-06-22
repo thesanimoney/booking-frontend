@@ -26,12 +26,16 @@ export interface Post {
     email: string;
     password: string;
     size: number
+    saved: boolean
 }
 
 const GetPosts = () => {
     return useQuery<Post[], AxiosError>({
         queryKey: ['posts'],
-        queryFn: () => apiClient.get<Post[]>('/posts').then(res => res.data).catch(err => err)
+        queryFn: () => apiClient.get<Post[]>('/posts', {
+            headers: {'authorization': localStorage.getItem("token")}
+        })
+            .then(res => res.data).catch(err => err)
     });
 };
 

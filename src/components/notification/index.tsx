@@ -7,7 +7,7 @@ interface NotificationProps {
     isSuccess: boolean
     isError: boolean
     error: AxiosError | null
-    successText: string
+    successText: string | undefined
     errorTitle: string
 }
 
