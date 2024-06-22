@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import apiClient from "@/api/apiClient";
 import { useToken } from "@/state/tokenStore";
 import {AxiosError, AxiosResponse} from "axios";
+import {toast} from "@/components/ui/use-toast.ts";
 
 export interface Login {
     username: string;
@@ -25,6 +26,10 @@ const useLogin = () => {
             setToken(token);
             localStorage.setItem('token', token);
             navigate('/');
+            toast({
+                title: 'Login success',
+                description: 'You successfully logged in',
+            })
         },
         onError: (error: AxiosError) => {
             console.error('Registration failed:', error);

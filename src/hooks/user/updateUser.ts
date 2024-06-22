@@ -2,10 +2,10 @@ import {useMutation} from "@tanstack/react-query";
 import apiClient from "@/api/apiClient.ts";
 import {queryClient} from "@/main.tsx";
 import {AxiosError} from "axios";
+import {toast} from "@/components/ui/use-toast.ts";
 
 export interface User {
     username: string;
-    // email: string;
 }
 
 const GetUser = () => {
@@ -18,9 +18,18 @@ const GetUser = () => {
                 }
             })
         },
-        onSuccess: () => queryClient.invalidateQueries({queryKey: ['user']}),
+        onSuccess: async () => {
+            await queryClient.invalidateQueries({queryKey: ['user']});
+            return toast({
+                description: 'Successfully updated user',
+            })
+        },
         onError: (error: AxiosError) => {
-            return error.response?.data;
+            return toast({
+                description: error.message,
+                title: 'Error',
+                variant: "destructive"
+            })
         }
     })
 };

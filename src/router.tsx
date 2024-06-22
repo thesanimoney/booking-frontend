@@ -10,6 +10,7 @@ import AboutPage from "@/pages/AboutPage.tsx";
 import PropertyPage from "@/pages/PropertyPage.tsx";
 import ProfilePage from "@/pages/ProfilePage.tsx";
 import ProtectedPage from "@/pages/protectedPage.tsx";
+import CreatePostPage from "@/pages/CreatePostPage.tsx";
 
 const router = createBrowserRouter([
     {path: "/", element: <Layout />, errorElement: <ErrorPage />,
@@ -19,7 +20,8 @@ const router = createBrowserRouter([
             { path: "about", element: <AboutPage/> },
             { path: "property/:id", element: <PropertyPage/> },
             { path: "profile/", element: <ProtectedPage/>, children: [
-                    {path: '', element: <ProfilePage/>}
+                    {path: '', element: <ProfilePage/>},
+                    {path: 'create-post', element: <CreatePostPage/>},
                 ] },
         ]},
     {path: '/auth', element: <AuthLayout/>, children: [

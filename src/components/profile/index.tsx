@@ -20,8 +20,8 @@ import updateUser, {User} from "@/hooks/user/updateUser.ts";
 import {useForm} from "react-hook-form";
 import {zodResolver} from "@hookform/resolvers/zod";
 import {UserFormDataUpdate, userSchemaUpdate} from "@/schema/updateUser.ts";
-import NotificationCenter from "@/components/notification";
 import {Post} from "@/hooks/posts/getPosts.ts";
+import {Link} from "react-router-dom";
 
 
 interface UserInfo {
@@ -35,11 +35,8 @@ interface UserPosts {
     myPosts: Post[]
 }
 
-export const successText = 'Your profile updated successfully.'
-export const errorTitle = 'Oops some error happened'
-
 export function ProfileEdit({username, email}: UserInfo) {
-    const {mutate, isPending, isError, error, isSuccess} = updateUser()
+    const {mutate, isPending} = updateUser()
     const {register, handleSubmit, formState: {errors}} = useForm<UserFormDataUpdate>({
         resolver: zodResolver(userSchemaUpdate)
     })
@@ -47,8 +44,6 @@ export function ProfileEdit({username, email}: UserInfo) {
     const onSubmit = (data: User) => {
         mutate(data)
     }
-
-    NotificationCenter({isError, isSuccess, error, successText, errorTitle})
 
     return (
         <Dialog>
@@ -124,7 +119,9 @@ export function UserPosts({savedPosts, myPosts}: UserPosts) {
     return <>
         <div className="flex justify-between mb-5">
             <TypographyH2 text={'My list'}/>
-            <Button>Add new property</Button>
+           <Link to={'create-post'}>
+                <Button>Add new property</Button>
+           </Link>
         </div>
         <Tabs defaultValue="saved">
             <TabsList className="grid w-full grid-cols-2">
@@ -132,10 +129,10 @@ export function UserPosts({savedPosts, myPosts}: UserPosts) {
                 <TabsTrigger value="properties">My properties</TabsTrigger>
             </TabsList>
             <TabsContent value="saved" className={'flex flex-col gap-y-4'}>
-                {savedPosts.map((item, index) => <PropertyCard key={index} id={item._id} data={item}/>)}
+                {savedPosts.length >= 0 && savedPosts.map((item, index) => <PropertyCard key={index} id={item._id} data={item}/>)}
             </TabsContent>
             <TabsContent value="properties" className={'flex flex-col gap-y-4'}>
-                 {myPosts.map((item, index) => <PropertyCard key={index} id={item._id} data={item}/>)}
+                 {myPosts.length >= 0 && myPosts.map((item, index) => <PropertyCard key={index} id={item._id} data={item}/>)}
             </TabsContent>
         </Tabs></>
 

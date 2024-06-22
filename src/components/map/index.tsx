@@ -23,17 +23,19 @@ export const GreyMap = ({data}: MapProps) => {
         setOpenWindows(updatedWindows);
     };
 
+    const position = {lat: parseFloat(data[0]?.latitude), lng: parseFloat(data[0]?.longitude)}
+
     return (
         <>
             <APIProvider apiKey={import.meta.env.VITE_API_MAP}>
                 <Map
                     id={'map'}
-                    style={{width: '100%', height: '700px', borderRadius: '10px', overflow: 'hidden', zIndex: 1}}
+                    style={{width: '100%', height: '800px', borderRadius: '10px', overflow: 'hidden', zIndex: 1}}
                     defaultZoom={8}
                     gestureHandling={'greedy'}
                     disableDefaultUI={true}
                     mapId={'b190e9c9b19e00cb'}
-                    defaultCenter={{lat: parseInt(data[1]?.latitude), lng: parseInt(data[1]?.longitude)}}>
+                    defaultCenter={position}>
                     {data.map((item, index) => <AdvancedMarker key={index} className={'hover:scale-125 transition-all 300ms ease-in-out'}
                                                       position={{ lat: parseFloat(item.latitude), lng: parseFloat(item.longitude) }} onClick={() => toggleWindow(index)}>
                         <Badge
@@ -44,7 +46,7 @@ export const GreyMap = ({data}: MapProps) => {
                    {openWindows.map((isOpen, index) => isOpen && (
                     <InfoWindow
                         key={index}
-                        className={'p-0 max-w-[300px]'}
+                        className={'p-0 w-full'}
                         position={{ lat: parseFloat(data[index].latitude), lng: parseFloat(data[index].longitude) }}
                         onCloseClick={() => toggleWindow(index)}>
                         <div className={'text-zinc-700 hover:underline hover:cursor-pointer'}>
@@ -59,7 +61,7 @@ export const GreyMap = ({data}: MapProps) => {
 }
 
 export const MapMini = ({data}: MiniMapProps) => {
-    const position = {lat: parseInt(data.latitude), lng: parseInt(data.longitude)}
+    const position = {lat: parseFloat(data.latitude), lng: parseFloat(data.longitude)}
     return (
         <>
             <APIProvider apiKey={import.meta.env.VITE_API_MAP}>

@@ -57,7 +57,7 @@ function PropertyFeatures({data}: Props) {
             <div className="flex flex-col gap-y-5 mt-5 py-2 px-5">
                 <TypographyH3 text={'Location'}/>
                 <div className="w-full">
-                    <MapMini data={data}/>
+                    {data.latitude && data.longitude ?  <MapMini data={data}/> : <TypographyP text={'Sorry, some error happening'}/>}
                 </div>
         </div>
     </>
