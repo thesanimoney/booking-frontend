@@ -40,11 +40,7 @@ const useAddPost = () => {
                 return res.data;
             } catch (err) {
                 if (err instanceof AxiosError) {
-                   toast({
-                       title: "Error",
-                       description: err.response?.data,
-                       variant: "destructive",
-                   })
+                    throw new Error(err.response?.data);
                 }
             }
         },
@@ -54,7 +50,7 @@ const useAddPost = () => {
                 description: "Successfully added new post!",
             })
            return await queryClient.invalidateQueries({queryKey: ['posts']})
-        }
+        },
     });
 };
 

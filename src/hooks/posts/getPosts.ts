@@ -27,6 +27,7 @@ export interface Post {
     password: string;
     size: number
     saved: boolean
+    isPublisher?: boolean
 }
 
 const GetPosts = () => {

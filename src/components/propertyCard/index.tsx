@@ -16,6 +16,8 @@ import {Link, useNavigate} from "react-router-dom";
 import {Post} from "@/hooks/posts/getPosts.ts";
 import {SavedPost, ToggleSavedPosts} from "@/hooks/posts/toggleSavedPosts.ts";
 import TypographyP from "@/components/typography/TypographyP.tsx";
+import ButtonOutline from "@/components/buttonOutline";
+import useRemovePost from "@/hooks/posts/deletePost.ts";
 
 interface Props {
     data: Post
@@ -26,14 +28,18 @@ export function PropertyCard({data, id}: Props) {
     const token = localStorage.getItem("token");
     const navigate = useNavigate();
     const {theme} = useTheme()
+
     const {mutate} = ToggleSavedPosts()
+    const {mutate: removeMutate} = useRemovePost()
+
     const onSave = (data: SavedPost) => {
-        if (token === null) {
-            return navigate(`/auth/login`)
-        }
+        if (token === null) return navigate(`/auth/login`)
          mutate(data)
     }
 
+    const onDelete = (id: string) => {
+        removeMutate(id)
+    }
     return <>
         <Card
             className="w-full mb-5 sm:h-[400px] grid sm:grid-cols-2 rounded-xl hover:scale-105 transition duration-500 ease-in-out">
@@ -50,7 +56,7 @@ export function PropertyCard({data, id}: Props) {
                         <Price price={data.price}/>
                     </CardContent>
                 </Link>
-                <CardFooter className="grid grid-cols-3 sm:grid-cols-3 md:grid-cols-3">
+                <CardFooter className="grid grid-cols-3 sm:grid-cols-3 md:grid-cols-3 gap-y-5">
                     <div className="col-span-2">
                         <div className="flex flex-col">
                             <Badge className={'text-sm rounded-md mb-2'} variant="secondary"><Bed
@@ -67,6 +73,9 @@ export function PropertyCard({data, id}: Props) {
                             <Toggle pressed={data.saved} onPressedChange={() => onSave({postId: data._id})}><Bookmark
                                 fill={data.saved ? 'black' : 'white'} size={30}/></Toggle>)}
                     </div>
+                    {data.isPublisher && <div onClick={() => onDelete(data._id)} className="col-span-3">
+                        <ButtonOutline text={'Delete'}/>
+                    </div>}
                 </CardFooter>
             </div>
         </Card>
