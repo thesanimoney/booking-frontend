@@ -60,7 +60,7 @@ function SearchPage() {
                     </div>
                 </div>
             </div>
-            {showMap && windowSize[0] < 1024 && data.length > 1 && <section
+            {showMap && windowSize[0] < 1024 && data.length > 0 && <section
                 className={`bg-secondary ${showMap && 'block mb-10'} lg:block col-span-1 lg:col-span-3 rounded-md max-h-[700px]`}
                 style={{zIndex: 1}}>
                 <GreyMap data={data}/>
