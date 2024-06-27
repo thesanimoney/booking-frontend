@@ -30,13 +30,14 @@ export interface Post {
     isPublisher?: boolean
 }
 
-const GetPosts = () => {
+const GetPosts = (params: string) => {
     return useQuery<Post[], AxiosError>({
         queryKey: ['posts'],
-        queryFn: () => apiClient.get<Post[]>('/posts', {
-            headers: {'authorization': localStorage.getItem("token")}
-        })
-            .then(res => res.data).catch(err => err)
+        queryFn: () => apiClient.get<Post[]>(`/posts?${params}`, {
+            headers: {'authorization': localStorage.getItem("token")},
+        }).then(res => {
+            return res.data
+        }).catch(err => err),
     });
 };
 

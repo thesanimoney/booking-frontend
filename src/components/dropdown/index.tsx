@@ -23,11 +23,14 @@ interface Property {
 interface Props {
     data: Property[],
     title: string,
+    setSearchParams: (value: string) => void,
 }
 
 export function Dropdown({data, title}: Props) {
     const [open, setOpen] = useState(false)
     const [value, setValue] = useState("")
+    console.log(value)
+
 
     return (
         <Popover open={open} onOpenChange={setOpen}>

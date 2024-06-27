@@ -42,7 +42,7 @@ function PropertyCreate() {
                             <Input
                                 placeholder="Title"
                                 {...register("title")}
-                                className={`form-input ${errors.title ? "border-red-500" : ""}`}
+                                className={`form-input ${errors.title ? "border-red-500" : ""} text-zinc-200`}
                             />
                             {errors.title && <p className="text-red-500">{errors.title.message}</p>}
                         </label>
@@ -53,7 +53,7 @@ function PropertyCreate() {
                             <Input
                                 placeholder="Description"
                                 {...register("desc")}
-                                className={`form-input ${errors.desc ? "border-red-500" : ""}`}
+                                className={`form-input ${errors.desc ? "border-red-500" : ""} text-zinc-200`}
                             />
                             {errors.desc && <p className="text-red-500">{errors.desc.message}</p>}
                         </label>
@@ -67,7 +67,7 @@ function PropertyCreate() {
                                 placeholder="Price"
                                 type="number"
                                 {...register("price", {valueAsNumber: true})}
-                                className={`form-input ${errors.price ? "border-red-500" : ""}`}
+                                className={`form-input ${errors.price ? "border-red-500" : ""} text-zinc-200`}
                             />
                             {errors.price && <p className="text-red-500">{errors.price.message}</p>}
                         </label>
@@ -80,7 +80,7 @@ function PropertyCreate() {
                             <Input
                                 placeholder="Address"
                                 {...register("address")}
-                                className={`form-input ${errors.address ? "border-red-500" : ""}`}
+                                className={`form-input ${errors.address ? "border-red-500" : ""} text-zinc-200`}
                             />
                             {errors.address && <p className="text-red-500">{errors.address.message}</p>}
                         </label>
@@ -91,7 +91,7 @@ function PropertyCreate() {
                             <Input
                                 placeholder="City"
                                 {...register("city")}
-                                className={`form-input ${errors.city ? "border-red-500" : ""}`}
+                                className={`form-input ${errors.city ? "border-red-500" : ""} text-zinc-200`}
                             />
                             {errors.city && <p className="text-red-500">{errors.city.message}</p>}
                         </label>
@@ -105,7 +105,7 @@ function PropertyCreate() {
                                 placeholder="Bedrooms"
                                 type="number"
                                 {...register("bedroom", {valueAsNumber: true})}
-                                className={`form-input ${errors.bedroom ? "border-red-500" : ""}`}
+                                className={`form-input ${errors.bedroom ? "border-red-500" : ""} text-zinc-200`}
                             />
                             {errors.bedroom && <p className="text-red-500">{errors.bedroom.message}</p>}
                         </label>
@@ -117,7 +117,7 @@ function PropertyCreate() {
                                 placeholder="Bathrooms"
                                 type="number"
                                 {...register("bathroom", {valueAsNumber: true})}
-                                className={`form-input ${errors.bathroom ? "border-red-500" : ""}`}
+                                className={`form-input ${errors.bathroom ? "border-red-500" : ""} text-zinc-200`}
                             />
                             {errors.bathroom && <p className="text-red-500">{errors.bathroom.message}</p>}
                         </label>
@@ -130,7 +130,7 @@ function PropertyCreate() {
                                 step="any"
                                 placeholder="Latitude"
                                 {...register("latitude", {valueAsNumber: true})}
-                                className={`form-input ${errors.latitude ? "border-red-500" : ""}`}
+                                className={`form-input ${errors.latitude ? "border-red-500" : ""} text-zinc-200`}
                             />
                             {errors.latitude && <p className="text-red-500">{errors.latitude.message}</p>}
                         </label>
@@ -145,7 +145,7 @@ function PropertyCreate() {
                                 type="number"
                                 placeholder="Longitude"
                                 {...register("longitude", {valueAsNumber: true})}
-                                className={`form-input ${errors.longitude ? "border-red-500" : ""}`}
+                                className={`form-input ${errors.longitude ? "border-red-500" : ""} text-zinc-200`}
                             />
                             {errors.longitude && <p className="text-red-500">{errors.longitude.message}</p>}
                         </label>
@@ -156,7 +156,7 @@ function PropertyCreate() {
                             <Input
                                 placeholder="Type"
                                 {...register("type")}
-                                className={`form-input ${errors.type ? "border-red-500" : ""}`}
+                                className={`form-input ${errors.type ? "border-red-500" : ""} text-zinc-200`}
                             />
                             {errors.type && <p className="text-red-500">{errors.type.message}</p>}
                         </label>
@@ -167,7 +167,7 @@ function PropertyCreate() {
                             <Input
                                 placeholder="Property"
                                 {...register("property")}
-                                className={`form-input ${errors.property ? "border-red-500" : ""}`}
+                                className={`form-input ${errors.property ? "border-red-500" : ""} text-zinc-200`}
                             />
                             {errors.property && <p className="text-red-500">{errors.property.message}</p>}
                         </label>
@@ -181,7 +181,7 @@ function PropertyCreate() {
                                 placeholder="Monthly income"
                                 type="number"
                                 {...register("income", {valueAsNumber: true})}
-                                className={`form-input ${errors.income ? "border-red-500" : ""}`}
+                                className={`form-input ${errors.income ? "border-red-500" : ""} text-zinc-200`}
                             />
                             {errors.income && <p className="text-red-500">{errors.income.message}</p>}
                         </label>
@@ -193,7 +193,7 @@ function PropertyCreate() {
                                 placeholder="Size in m2"
                                 type="number"
                                 {...register("size", {valueAsNumber: true})}
-                                className={`form-input ${errors.size ? "border-red-500" : ""}`}
+                                className={`form-input ${errors.size ? "border-red-500" : ""} text-zinc-200`}
                             />
                             {errors.size && <p className="text-red-500">{errors.size.message}</p>}
                         </label>
@@ -205,7 +205,7 @@ function PropertyCreate() {
                                 placeholder="Closest school distance"
                                 type="number"
                                 {...register("school", {valueAsNumber: true})}
-                                className={`form-input ${errors.school ? "border-red-500" : ""}`}
+                                className={`form-input ${errors.school ? "border-red-500" : ""} text-zinc-200`}
                             />
                             {errors.school && <p className="text-red-500">{errors.school.message}</p>}
                         </label>
@@ -219,7 +219,7 @@ function PropertyCreate() {
                                 placeholder="Closest bus distance"
                                 type="number"
                                 {...register("bus", {valueAsNumber: true})}
-                                className={`form-input ${errors.bus ? "border-red-500" : ""}`}
+                                className={`form-input ${errors.bus ? "border-red-500" : ""} text-zinc-200`}
                             />
                             {errors.bus && <p className="text-red-500">{errors.bus.message}</p>}
                         </label>
@@ -231,7 +231,7 @@ function PropertyCreate() {
                                 placeholder="Closest restaurant distance"
                                 type="number"
                                 {...register("restoraunt", {valueAsNumber: true})}
-                                className={`form-input ${errors.restoraunt ? "border-red-500" : ""}`}
+                                className={`form-input ${errors.restoraunt ? "border-red-500" : ""} text-zinc-200`}
                             />
                             {errors.restoraunt && <p className="text-red-500">{errors.restoraunt.message}</p>}
                         </label>

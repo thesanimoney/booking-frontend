@@ -15,6 +15,11 @@
 
 .bigImage {
     flex: 3;
+    transition: transform 0.3s ease-in-out;
+}
+
+.bigImage:hover {
+    transform: scale(1.1);
 }
 
 .smalImages {
@@ -23,7 +28,14 @@
     flex-direction: column;
     justify-content: space-between;
 
+
     img {
         height: 120px;
+        transition: transform 0.3s ease-in-out;
     }
 }
+
+.smalImages img:hover {
+    transform: scale(1.1);
+}
+

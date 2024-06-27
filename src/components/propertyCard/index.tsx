@@ -46,7 +46,7 @@ export function PropertyCard({data, id}: Props) {
             <img className="object-fill sm:h-[400px] w-full rounded-t-xl md:rounded-l-xl md:rounded-tr-none"
                  src="/static/assets/dalle.webp"
                  alt="dalle"/>
-            <div className="mx-auto flex flex-col gap-y-10">
+            <div className="mx-auto gap-y-10 w-full">
                 <Link to={`/property/${id}`}>
                     <CardHeader>
                         <CardTitle className={'hover:underline'}>{data.title}</CardTitle>
