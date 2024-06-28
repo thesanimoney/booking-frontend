@@ -11,6 +11,7 @@ import PropertyPage from "@/pages/PropertyPage.tsx";
 import ProfilePage from "@/pages/ProfilePage.tsx";
 import ProtectedPage from "@/pages/protectedPage.tsx";
 import CreatePostPage from "@/pages/CreatePostPage.tsx";
+import EditPage from "@/pages/EditPage.tsx";
 
 const router = createBrowserRouter([
     {path: "/", element: <Layout />, errorElement: <ErrorPage />,
@@ -22,6 +23,7 @@ const router = createBrowserRouter([
             { path: "profile/", element: <ProtectedPage/>, children: [
                     {path: '', element: <ProfilePage/>},
                     {path: 'create-post', element: <CreatePostPage/>},
+                    {path: 'edit-post/:id', element: <EditPage/>},
                 ] },
         ]},
     {path: '/auth', element: <AuthLayout/>, children: [

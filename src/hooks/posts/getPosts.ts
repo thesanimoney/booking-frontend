@@ -11,8 +11,8 @@ export interface Post {
     city: string;
     bedroom: number;
     bathroom: number;
-    latitude: string;
-    longitude: string;
+    latitude: number;
+    longitude: number;
     type: string;
     property: string;
     createdAt: string;

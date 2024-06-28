@@ -18,6 +18,7 @@ import {SavedPost, ToggleSavedPosts} from "@/hooks/posts/toggleSavedPosts.ts";
 import TypographyP from "@/components/typography/TypographyP.tsx";
 import ButtonOutline from "@/components/buttonOutline";
 import useRemovePost from "@/hooks/posts/deletePost.ts";
+import {Button} from "@/components/ui/button.tsx";
 
 interface Props {
     data: Post
@@ -53,10 +54,11 @@ export function PropertyCard({data, id}: Props) {
                     </CardHeader>
                     <CardContent className={'gridColumn gap-y-5'}>
                         <Location location={data.address}/>
+                        <TypographyP isSecondary={true} text={data.city}/>
                         <Price price={data.price}/>
                     </CardContent>
                 </Link>
-                <CardFooter className="grid grid-cols-3 sm:grid-cols-3 md:grid-cols-3 gap-y-5">
+                <CardFooter className="grid grid-cols-4 sm:grid-cols-3 md:grid-cols-3 gap-y-5">
                     <div className="col-span-2">
                         <div className="flex flex-col">
                             <Badge className={'text-sm rounded-md mb-2'} variant="secondary"><Bed
@@ -73,15 +75,17 @@ export function PropertyCard({data, id}: Props) {
                             <Toggle pressed={data.saved} onPressedChange={() => onSave({postId: data._id})}><Bookmark
                                 fill={data.saved ? 'black' : 'white'} size={30}/></Toggle>)}
                     </div>
-                    {data.isPublisher && <div onClick={() => onDelete(data._id)} className="col-span-3">
+                    {data.isPublisher && <>
+                            <Button onClick={() => navigate(`edit-post/${data._id}`)} className={'mr-2'}>Edit</Button>
+                    <div onClick={() => onDelete(data._id)}>
                         <ButtonOutline text={'Delete'}/>
-                    </div>}
+                    </div>
+                    </>
+                    }
                 </CardFooter>
             </div>
         </Card>
-
     </>
-
 }
 
 export function MiniCard({data}: Props) {

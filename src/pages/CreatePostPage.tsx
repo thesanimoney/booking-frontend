@@ -12,7 +12,7 @@ function CreatePostPage() {
                 <PropertyCreate/>
             </div>
             <div className={'col-span-1 order-1 sm:order-2 mb-10'}>
-            <BestPractices/>
+            <BestPractices text={'Best practices for post creation!'}/>
             </div>
         </section>
     </>

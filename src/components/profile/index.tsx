@@ -116,7 +116,6 @@ export function UserInfo({username, email}: UserInfo) {
 }
 
 export function UserPosts({savedPosts, myPosts}: UserPosts) {
-    console.log(myPosts)
     return <>
         <div className="flex justify-between mb-5">
             <TypographyH2 text={'My list'}/>

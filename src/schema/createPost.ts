@@ -1,7 +1,7 @@
 import z from 'zod'
 
 const postSchema = z.object({
-    title: z.string().min(1, { message: "Title is required" }),
+    title: z.string().min(1, { message: "Title is required" }).nullable(),
     price: z.number().nonnegative({ message: "Price must be a non-negative number" }),
     address: z.string().min(1, { message: "Address is required" }),
     city: z.string().min(1, { message: "City is required" }),
